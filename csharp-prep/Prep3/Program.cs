@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 
 class Program
 {
@@ -14,16 +15,21 @@ class Program
 
         // random nu,ber generation 
 
+        bool playAgain = true;
+
+
+        while (playAgain){
         Random randomGenerator = new Random();
         int magicNumber = randomGenerator.Next(1, 101);
-
-       int magicGuess = -1;
+        int magicGuess = -1;
+        int numberOfGuess=0;
 
         while (magicGuess != magicNumber)
         {
             Console.WriteLine("What is Your magic number: ");
             string guessNumberText = Console.ReadLine();
             magicGuess= int.Parse(guessNumberText);
+            numberOfGuess++;
 
             if (magicGuess > magicNumber)
             {
@@ -35,12 +41,20 @@ class Program
             }
             else
             {
-                Console.WriteLine("You have guessed it coreectly!!! cograts !!!");
+                Console.WriteLine("You have guessed it coreectly!!! cograts !!! it took you " + numberOfGuess +  " times to get it right");
             }
 
 
         }
+        Console.WriteLine("Do you want to play again? (yes/no)");
+        string playAgainResponse = Console.ReadLine().ToLower();
+
+        if (playAgainResponse != "yes")
+        {
+            playAgain = false;
+        }
 
         
+    }
     }
 }
