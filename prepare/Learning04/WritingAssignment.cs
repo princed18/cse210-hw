@@ -1,3 +1,5 @@
+using System;
+
 public class WritingAssignment : Assignment
 {
     private string _title;
@@ -11,7 +13,7 @@ public class WritingAssignment : Assignment
         _title = title;
     }
 
-    public string GetWritingInformation()
+     public string GetWritingInformation()
     {
         // Notice that we are calling the getter here because _studentName is private in the base class
         string studentName = GetStudentName();
